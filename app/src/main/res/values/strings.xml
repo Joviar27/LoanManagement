@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">LoanManagement</string>
+
+    <!--  item_loan  -->
+    <string name="loan_purpose">Asked for %s</string>
+    <string name="loan_interest">%s Interest Rate</string>
+    <string name="loan_term">% Months</string>
+    <string name="title_home">Available Loan List</string>
 </resources>
