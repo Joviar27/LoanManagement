@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "LoanManagement"
 include(":app")
- 
+include(":core")
