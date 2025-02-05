@@ -40,14 +40,13 @@
             android:id="@+id/tv_loan_purpose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:text="@string/loan_purpose"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textColor="@color/color_text_primary_light"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/tv_loan_amount"
-            app:layout_constraintTop_toBottomOf="@+id/tv_borrower_name" />
+            app:layout_constraintStart_toStartOf="@+id/tv_loan_amount"
+            app:layout_constraintTop_toBottomOf="@+id/tv_loan_amount" />
 
         <TextView
             android:id="@+id/tv_loan_interest"
@@ -58,7 +57,7 @@
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textColor="@color/grey"
             app:layout_constraintStart_toStartOf="@+id/tv_loan_amount"
-            app:layout_constraintTop_toBottomOf="@+id/tv_loan_amount" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_loan_purpose" />
 
         <TextView
             android:id="@+id/tv_loan_term"
