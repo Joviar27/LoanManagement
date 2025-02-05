@@ -18,4 +18,7 @@
     <string name="btn_document_available">View Document</string>
     <string name="btn_document_unavailable">Document Unavailable</string>
     <string name="repayment_schedule">Repayment Schedule</string>
+    
+    <!--  BottomSheet  -->
+    <string name="document_type">Type : %s</string>
 </resources>
