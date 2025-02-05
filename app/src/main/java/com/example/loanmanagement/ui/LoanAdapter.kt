@@ -26,7 +26,7 @@ class LoanAdapter() : ListAdapter<Loan, LoanAdapter.UserViewHolder>(DIFF_CALLBAC
             binding.tvLoanTerm.text = itemView.context.getString(R.string.loan_term, loan.term.toString())
 
             binding.tvLoanAmount.text = FormatterUtil.formatToRupiah(loan.amount)
-            binding.tvLoanRisk.text = loan.riskRating
+            binding.tvLoanRisk.text = itemView.context.getString(R.string.loan_risk, loan.riskRating)
 
             itemView.setOnClickListener {
                 onItemClicked.invoke(loan)
