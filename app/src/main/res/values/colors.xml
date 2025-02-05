@@ -10,10 +10,10 @@
 
     <color name="color_primary">#FA6522</color>
     <color name="color_primary_variant">#DB4807</color>
-    <color name="color_surface">#FACEBA</color>
+    <color name="color_surface">#FFECE7</color>
 
     <color name="grey">#FF424242</color>
-    <color name="light_grey">#C4C4C4</color>
+    <color name="light_grey">#B4B4B4</color>
 
     <color name="color_text_primary">#AD4704</color>
     <color name="color_text_primary_light">#F37523</color>
