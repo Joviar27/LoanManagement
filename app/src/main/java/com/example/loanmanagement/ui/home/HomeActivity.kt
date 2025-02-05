@@ -1,5 +1,6 @@
 package com.example.loanmanagement.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -12,6 +13,7 @@ import com.example.loanmanagement.R
 import com.example.loanmanagement.ViewModelFactory
 import com.example.loanmanagement.databinding.ActivityHomeBinding
 import com.example.loanmanagement.ui.LoanAdapter
+import com.example.loanmanagement.ui.detail.DetailActivity
 import com.example.loanmanagement.utils.showToast
 
 class HomeActivity : AppCompatActivity() {
@@ -43,6 +45,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initView(){
+        adapter.onItemClicked = { selectedLoan ->
+            val intent = Intent(this@HomeActivity, DetailActivity::class.java)
+            intent.putExtra(DetailActivity.KEY_EXTRA_LOAN, selectedLoan)
+            startActivity(intent)
+        }
         binding.rvLoans.apply {
             layoutManager = LinearLayoutManager(this@HomeActivity)
             binding.rvLoans.adapter = this@HomeActivity.adapter

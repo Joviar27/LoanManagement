@@ -26,7 +26,7 @@ data class LoanListResponseItem(
 	val purpose: String,
 
 	@field:SerializedName("documents")
-	val documents: List<DocumentsResponse>,
+	val documents: List<DocumentsResponse>?,
 
 	@field:SerializedName("borrower")
 	val borrower: BorrowerResponse,
@@ -95,7 +95,7 @@ fun List<LoanListResponseItem>.mapToModel(): List<Loan>{
             interestRate = it.interestRate,
             amount = it.amount,
             purpose = it.purpose,
-            documents = it.documents.map { documentResponse ->
+            documents = it.documents?.map { documentResponse ->
 				Document(
 					type = documentResponse.type,
 					url = documentResponse.url
