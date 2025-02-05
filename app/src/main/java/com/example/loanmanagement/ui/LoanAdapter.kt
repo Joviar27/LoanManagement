@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.core.domain.Loan
 import com.example.loanmanagement.R
 import com.example.loanmanagement.databinding.ItemLoanBinding
-import com.example.loanmanagement.utils.CurrencyUtil
+import com.example.loanmanagement.utils.FormatterUtil
 
 class LoanAdapter() : ListAdapter<Loan, LoanAdapter.UserViewHolder>(DIFF_CALLBACK){
 
@@ -19,10 +19,13 @@ class LoanAdapter() : ListAdapter<Loan, LoanAdapter.UserViewHolder>(DIFF_CALLBAC
         fun bind(loan: Loan){
             binding.tvBorrowerName.text = loan.borrower.name
             binding.tvLoanPurpose.text = itemView.context.getString(R.string.loan_purpose, loan.purpose)
-            binding.tvLoanInterest.text = itemView.context.getString(R.string.loan_interest, loan.interestRate)
+            binding.tvLoanInterest.text = itemView.context.getString(
+                R.string.loan_interest,
+                FormatterUtil.formatPercentage(loan.interestRate)
+            )
             binding.tvLoanTerm.text = itemView.context.getString(R.string.loan_term, loan.term.toString())
 
-            binding.tvLoanAmount.text = CurrencyUtil.formatToRupiah(loan.amount)
+            binding.tvLoanAmount.text = FormatterUtil.formatToRupiah(loan.amount)
             binding.tvLoanRisk.text = loan.riskRating
 
             itemView.setOnClickListener {

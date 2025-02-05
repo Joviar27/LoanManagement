@@ -17,7 +17,7 @@ data class RepaymentScheduleResponse(
 data class LoanListResponseItem(
 
 	@field:SerializedName("interestRate")
-	val interestRate: Any,
+	val interestRate: Double,
 
 	@field:SerializedName("amount")
 	val amount: Int,

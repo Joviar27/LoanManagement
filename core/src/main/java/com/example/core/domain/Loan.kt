@@ -1,7 +1,7 @@
 package com.example.core.domain
 
 data class Loan(
-    val interestRate: Any,
+    val interestRate: Double,
     val amount: Int,
     val purpose: String,
     val documents: List<Document>,
