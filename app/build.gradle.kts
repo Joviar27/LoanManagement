@@ -51,4 +51,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    //Glide
+    implementation(libs.glide)
 }

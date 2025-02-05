@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.core.domain.Loan
 import com.example.loanmanagement.R
 import com.example.loanmanagement.databinding.ActivityDetailBinding
+import com.example.loanmanagement.ui.bottomsheet.DocumentBottomSheetFragment
 import com.example.loanmanagement.utils.FormatterUtil
 
 class DetailActivity : AppCompatActivity() {
@@ -48,6 +49,8 @@ class DetailActivity : AppCompatActivity() {
         }
 
         loan?.let {
+            val documentBottomSheet = DocumentBottomSheetFragment.newInstance(it.documents?.get(0))
+
             binding.tvBorrowerName.text = it.borrower.name
             binding.tvBorrowerEmail.text = it.borrower.email
 
@@ -55,9 +58,9 @@ class DetailActivity : AppCompatActivity() {
             binding.tvCollateralType.text = resources.getString(R.string.collateral_type, it.collateral.type)
             binding.tvCollateralValue.text = resources.getString(R.string.collateral_value, FormatterUtil.formatToUSD(it.collateral.value))
 
-            binding.btnLoanDocument.isEnabled = it.documents!=null
-            binding.btnLoanDocument.setOnClickListener {
-                //TODO: Show bottom sheet with loan document
+            binding.btnLoanDocument.isEnabled = !it.documents.isNullOrEmpty()
+            binding.btnLoanDocument.setOnClickListener { _ ->
+                documentBottomSheet.show(supportFragmentManager, "document")
             }
 
             repaymentAdapter = RepaymentAdapter(it.repaymentSchedule.installments)
