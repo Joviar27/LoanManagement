@@ -13,7 +13,7 @@
     <!--  Detail  -->
     <string name="title_detail">Loan detail</string>
     <string name="credit_score">Credit Score: %s</string>
-    <string name="collateral_type">Credit Score: %s</string>
+    <string name="collateral_type">Collateral Type: %s</string>
     <string name="collateral_value">Collateral value: %s</string>
     <string name="amount_due">Amount Due: %s</string>
     <string name="btn_document_available">View Document</string>
