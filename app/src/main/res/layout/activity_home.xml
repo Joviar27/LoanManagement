@@ -21,16 +21,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/view_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_filter_alt_24"
+            app:tint="@color/color_primary_variant" />
+
+        <com.example.loanmanagement.ui.custom.FilterText
+            android:id="@+id/btn_sort_amount"
+            android:layout_width="72dp"
+            android:layout_height="36dp"
+            android:text="@string/amount"
+            android:layout_marginEnd="8dp"/>
+
+        <com.example.loanmanagement.ui.custom.FilterText
+            android:id="@+id/btn_sort_term"
+            android:layout_width="72dp"
+            android:layout_height="36dp"
+            android:text="@string/term"
+            android:layout_marginEnd="8dp"/>
+
+        <com.example.loanmanagement.ui.custom.FilterText
+            android:id="@+id/btn_sort_purpose"
+            android:layout_width="72dp"
+            android:layout_height="36dp"
+            android:text="@string/purpose"
+            android:layout_marginEnd="8dp"/>
+
+        <com.example.loanmanagement.ui.custom.FilterText
+            android:id="@+id/btn_sort_risk"
+            android:layout_width="72dp"
+            android:layout_height="36dp"
+            android:text="@string/risk"
+            android:layout_marginEnd="8dp"/>
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_loans"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingVertical="8dp"
-        tools:listitem="@layout/item_loan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/view_filter"
+        tools:listitem="@layout/item_loan" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

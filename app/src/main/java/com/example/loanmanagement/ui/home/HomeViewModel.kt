@@ -8,6 +8,7 @@ import com.example.core.Event
 import com.example.core.Result
 import com.example.core.data.LoanRepository
 import com.example.core.domain.Loan
+import com.example.core.domain.SortType
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
@@ -23,13 +24,16 @@ class HomeViewModel(
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
+    private val _sortType = MutableLiveData<SortType>()
+    val sortType: LiveData<SortType> get() = _sortType
+
     init {
-        getLoanList()
+        getLoanList(null)
     }
 
-    private fun getLoanList(){
+    fun getLoanList(sortType: SortType?){
         viewModelScope.launch {
-            repository.getUserLoanList()
+            repository.getUserLoanList(sortType)
                 .collect{
                     when(it){
                         is Result.Loading ->{
@@ -46,5 +50,9 @@ class HomeViewModel(
                     }
                 }
         }
+    }
+
+    fun updateSortType(sortType: SortType){
+        _sortType.postValue(sortType)
     }
 }

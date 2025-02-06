@@ -22,4 +22,8 @@
     
     <!--  BottomSheet  -->
     <string name="document_type">Type : %s</string>
+    <string name="amount">Amount</string>
+    <string name="term">Term</string>
+    <string name="purpose">Purpose</string>
+    <string name="risk">Risk</string>
 </resources>

@@ -5,6 +5,7 @@ import com.example.core.Result
 import com.example.core.data.remote.network.ApiService
 import com.example.core.data.remote.response.mapToModel
 import com.example.core.domain.Loan
+import com.example.core.domain.SortType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -26,12 +27,20 @@ class LoanRepository(
         }
     }
 
-    fun getUserLoanList(): Flow<Result<List<Loan>>> = flow {
+    fun getUserLoanList(sortType: SortType?): Flow<Result<List<Loan>>> = flow {
         emit(Result.Loading)
         try{
             val response = apiService.getLoanList()
             val loanList = response.mapToModel()
-            emit(Result.Success(loanList))
+            if(sortType!=null){
+                val sortedLoan = when(sortType){
+                    SortType.AMOUNT -> loanList.sortedBy { it.amount }
+                    SortType.TERM -> loanList.sortedBy { it.term }
+                    SortType.RISK -> loanList.sortedBy { it.riskRating }
+                    SortType.PURPOSE -> loanList.sortedBy { it.purpose }
+                }
+                emit(Result.Success(sortedLoan))
+            } else emit(Result.Success(loanList))
         }catch (e: Exception){
             emit(Result.Error(e.message.toString()))
             Log.e("LoanRepository", "getUserLoanList: ${e.message.toString()}")

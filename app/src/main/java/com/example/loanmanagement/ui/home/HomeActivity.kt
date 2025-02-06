@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.loanmanagement.R
+import com.example.core.domain.SortType
 import com.example.loanmanagement.ViewModelFactory
 import com.example.loanmanagement.databinding.ActivityHomeBinding
 import com.example.loanmanagement.ui.LoanAdapter
@@ -54,6 +54,24 @@ class HomeActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@HomeActivity)
             binding.rvLoans.adapter = this@HomeActivity.adapter
         }
+
+        resetSortState()
+        binding.btnSortPurpose.setOnClickListener{
+            resetSortState()
+            viewModel.updateSortType(SortType.PURPOSE)
+        }
+        binding.btnSortTerm.setOnClickListener{
+            resetSortState()
+            viewModel.updateSortType(SortType.TERM)
+        }
+        binding.btnSortAmount.setOnClickListener{
+            resetSortState()
+            viewModel.updateSortType(SortType.AMOUNT)
+        }
+        binding.btnSortRisk.setOnClickListener{
+            resetSortState()
+            viewModel.updateSortType(SortType.RISK)
+        }
     }
 
     private fun initObserver(){
@@ -66,5 +84,22 @@ class HomeActivity : AppCompatActivity() {
         viewModel.error.observe(this){
             it.getContentIfNotHandled()?.showToast(this)
         }
+        viewModel.sortType.observe(this){
+            when(it){
+                SortType.RISK -> binding.btnSortRisk.setSelectedState(true)
+                SortType.TERM -> binding.btnSortTerm.setSelectedState(true)
+                SortType.AMOUNT -> binding.btnSortAmount.setSelectedState(true)
+                SortType.PURPOSE -> binding.btnSortPurpose.setSelectedState(true)
+                else -> Unit
+            }
+            if(it!=null) viewModel.getLoanList(it)
+        }
+    }
+
+    private fun resetSortState(){
+        binding.btnSortAmount.setSelectedState(false)
+        binding.btnSortRisk.setSelectedState(false)
+        binding.btnSortPurpose.setSelectedState(false)
+        binding.btnSortTerm.setSelectedState(false)
     }
 }
