@@ -3,7 +3,7 @@ package com.example.loanmanagement.ui.detail
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.core.domain.InstallmentsItem
+import com.example.core.domain.model.InstallmentsItem
 import com.example.loanmanagement.databinding.ItemRepaymentBinding
 import com.example.loanmanagement.utils.FormatterUtil
 

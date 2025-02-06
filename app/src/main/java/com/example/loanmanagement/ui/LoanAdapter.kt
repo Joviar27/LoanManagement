@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.core.domain.Loan
+import com.example.core.domain.model.Loan
 import com.example.loanmanagement.R
 import com.example.loanmanagement.databinding.ItemLoanBinding
 import com.example.loanmanagement.utils.FormatterUtil

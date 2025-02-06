@@ -3,6 +3,9 @@ package com.example.core.di
 import com.example.core.data.LoanRepository
 import com.example.core.data.remote.network.ApiConfig
 import com.example.core.data.remote.network.ApiService
+import com.example.core.domain.repository.ILoanRepository
+import com.example.core.domain.usecase.GetLoanInteractor
+import com.example.core.domain.usecase.GetLoanUseCase
 
 object Injection {
 
@@ -10,7 +13,11 @@ object Injection {
         return ApiConfig.getApiService()
     }
 
-    fun provideRepository(): LoanRepository{
+    private fun provideRepository(): ILoanRepository{
         return LoanRepository.getInstance(provideApiService())
+    }
+
+    fun provideGetLoanUseCase(): GetLoanUseCase{
+        return GetLoanInteractor.getInstance(provideRepository())
     }
 }

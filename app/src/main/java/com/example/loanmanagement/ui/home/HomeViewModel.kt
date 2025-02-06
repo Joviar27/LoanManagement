@@ -6,13 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.Event
 import com.example.core.Result
-import com.example.core.data.LoanRepository
-import com.example.core.domain.Loan
-import com.example.core.domain.SortType
+import com.example.core.domain.model.Loan
+import com.example.core.domain.model.SortType
+import com.example.core.domain.usecase.GetLoanUseCase
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    private val repository: LoanRepository
+    private val getLoanUseCase: GetLoanUseCase
 ): ViewModel() {
 
     private val _error = MutableLiveData<Event<String>>()
@@ -33,7 +33,7 @@ class HomeViewModel(
 
     fun getLoanList(sortType: SortType?){
         viewModelScope.launch {
-            repository.getUserLoanList(sortType)
+            getLoanUseCase.getUserLoanList(sortType)
                 .collect{
                     when(it){
                         is Result.Loading ->{

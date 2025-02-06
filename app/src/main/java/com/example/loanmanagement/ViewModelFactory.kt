@@ -2,12 +2,12 @@ package com.example.loanmanagement
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.core.data.LoanRepository
 import com.example.core.di.Injection
+import com.example.core.domain.usecase.GetLoanUseCase
 import com.example.loanmanagement.ui.home.HomeViewModel
 
 class ViewModelFactory private constructor(
-    private val repository: LoanRepository
+    private val getLoanUseCase: GetLoanUseCase
 ) : ViewModelProvider.Factory {
 
     companion object {
@@ -16,7 +16,7 @@ class ViewModelFactory private constructor(
 
         fun getInstance(): ViewModelFactory {
             return instance ?: synchronized(this) {
-                instance ?: ViewModelFactory(Injection.provideRepository())
+                instance ?: ViewModelFactory(Injection.provideGetLoanUseCase())
                     .also { instance = it }
             }
         }
@@ -24,7 +24,7 @@ class ViewModelFactory private constructor(
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
-            return HomeViewModel(repository) as T
+            return HomeViewModel(getLoanUseCase) as T
         }else{
             throw IllegalArgumentException("Unknown ViewModel class")
         }

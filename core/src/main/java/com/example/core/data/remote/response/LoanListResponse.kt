@@ -1,11 +1,11 @@
 package com.example.core.data.remote.response
 
-import com.example.core.domain.Borrower
-import com.example.core.domain.Collateral
-import com.example.core.domain.Document
-import com.example.core.domain.InstallmentsItem
-import com.example.core.domain.Loan
-import com.example.core.domain.RepaymentSchedule
+import com.example.core.domain.model.Borrower
+import com.example.core.domain.model.Collateral
+import com.example.core.domain.model.Document
+import com.example.core.domain.model.InstallmentsItem
+import com.example.core.domain.model.Loan
+import com.example.core.domain.model.RepaymentSchedule
 import com.google.gson.annotations.SerializedName
 
 data class RepaymentScheduleResponse(

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.core.BuildConfig
-import com.example.core.domain.Document
+import com.example.core.domain.model.Document
 import com.example.loanmanagement.R
 import com.example.loanmanagement.databinding.BottomsheetDocumentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

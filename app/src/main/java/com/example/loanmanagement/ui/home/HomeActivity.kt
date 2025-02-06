@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.core.domain.SortType
+import com.example.core.domain.model.SortType
 import com.example.loanmanagement.ViewModelFactory
 import com.example.loanmanagement.databinding.ActivityHomeBinding
 import com.example.loanmanagement.ui.LoanAdapter

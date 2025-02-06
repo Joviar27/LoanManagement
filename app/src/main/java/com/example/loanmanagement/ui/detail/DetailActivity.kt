@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.core.domain.Loan
+import com.example.core.domain.model.Loan
 import com.example.loanmanagement.R
 import com.example.loanmanagement.databinding.ActivityDetailBinding
 import com.example.loanmanagement.ui.bottomsheet.DocumentBottomSheetFragment
