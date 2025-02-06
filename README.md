@@ -21,8 +21,9 @@ Several tech stack implemented in this project:
 - **Glide** : Library to easily load image url into ImageView
 
 ## Features
-![Image](https://github.com/user-attachments/assets/3c15addc-b1a0-41d3-beed-15ed46e5c937)
-![Image](https://github.com/user-attachments/assets/29efeb3a-e29d-49f4-b799-dcdfea72a108)
-![Image](https://github.com/user-attachments/assets/1a849a65-fbb0-4674-96ce-1cd187c4698a)
-![Image](https://github.com/user-attachments/assets/8edfdd8c-307a-48b2-b29b-6b44afbb3faa)
-![Image](https://github.com/user-attachments/assets/fa1b04d6-f431-469a-b3f3-3ef92ef11687)
+- Display list of loan
+- Sort the displayed loans based on either amount, purpose, term, or risk
+- Display the loan detail like collateral repayment schedule
+- Display supporting loan document if available
+  
+![Image](https://github.com/user-attachments/assets/4ed3b86b-1b15-4cc0-af95-044801512021)
