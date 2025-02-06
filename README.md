@@ -5,7 +5,7 @@ An application that allows users to view a list of available loans along with de
 <mark>**The application is built using the latest version of AGP (8.8.0) compatible with Android Studio LadyBug Feature Drop**</mark>
 
 ## APK
-Use this link to download the APK: 
+[Use this link to download the APK ](https://drive.google.com/drive/folders/1gGPlYGxkbUJT5Oqj-buUblCru7Hv7vQb)
 
 ## Architecture
 This project implements a combination of Clean Architecture and MVVM, separating the application into several layers: data, domain, and presentation. The primary objective is to enhance the application's testability and maintainability by minimizing tightly coupled components and modules.
